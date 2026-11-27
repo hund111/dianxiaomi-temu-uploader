@@ -3,10 +3,9 @@
 """把仓库最近的提交写回 README.md 的「项目动态」区块。
 
 由 .github/workflows/update-activity.yml 在每次 push / 每日定时 / 手动触发时调用。
-只在两个标记之间改写，其余内容一个字不动。
+只改写两个标记之间的内容；自动机器人的提交不计入表格。
 """
 
-import datetime
 import json
 import os
 import re
@@ -15,6 +14,7 @@ import urllib.request
 START = "<!-- ACTIVITY:START -->"
 END = "<!-- ACTIVITY:END -->"
 RECENT = 5
+BOTS = {"github-actions[bot]", "dependabot[bot]"}
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 README = os.path.join(ROOT, "README.md")
@@ -38,7 +38,7 @@ def total_commits():
         _, headers = api("/commits?per_page=1")
         link = headers.get("Link", "") or ""
         m = re.search(r'[?&]page=(\d+)>;\s*rel="last"', link)
-        return int(m.group(1)) if m else None
+        return int(m.group(1)) if m else 1
     except Exception:
         return None
 
@@ -49,22 +49,37 @@ def clean(text, limit=46):
     return text[:limit] + ("…" if len(text) > limit else "")
 
 
+def is_bot(item):
+    name = ((item.get("commit") or {}).get("author") or {}).get("name", "") or ""
+    login = ((item.get("author") or {}).get("login")) or ""
+    return name in BOTS or login in BOTS or "[bot]" in name or "[bot]" in login
+
+
 def build_block():
-    now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=8)))
-    stamp = now.strftime("%Y-%m-%d %H:%M")
     try:
-        commits, _ = api("/commits?per_page=%d" % RECENT)
+        raw, _ = api("/commits?per_page=30")
     except Exception as e:
         return "%s\n> 读取提交失败：%s\n%s" % (START, e, END)
 
+    human = [c for c in raw if not is_bot(c)][:RECENT]
     total = total_commits()
+
     lines = [START, ""]
-    lines.append("> 最近刷新：**%s**（北京时间）%s" % (
-        stamp, "· 累计提交 **%d** 次" % total if total else ""))
+    head = "> 下面的表格由 GitHub Actions 自动维护"
+    if total:
+        head += "· 仓库累计提交 **%d** 次" % total
+    lines.append(head)
     lines.append("")
+
+    if not human:
+        lines.append("> 还没有人工提交。")
+        lines.append("")
+        lines.append(END)
+        return "\n".join(lines)
+
     lines.append("| 日期 | 提交信息 | 作者 | 提交 |")
     lines.append("|---|---|---|---|")
-    for c in commits:
+    for c in human:
         info = c.get("commit", {})
         date = (info.get("committer") or {}).get("date", "")[:10]
         msg = clean(info.get("message", ""))
@@ -73,7 +88,7 @@ def build_block():
         link = "https://github.com/%s/commit/%s" % (REPO, c.get("sha", ""))
         lines.append("| %s | %s | %s | [`%s`](%s) |" % (date, msg, author, sha, link))
     lines.append("")
-    lines.append("<sub>这个模块由 `.github/workflows/update-activity.yml` 自动维护，无需手动改。</sub>")
+    lines.append("<sub>自动机器人的提交不计入本表；工作流文件：`.github/workflows/update-activity.yml`。</sub>")
     lines.append(END)
     return "\n".join(lines)
 
