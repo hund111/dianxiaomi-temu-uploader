@@ -20,16 +20,15 @@
 
 <!-- ACTIVITY:START -->
 
-> 下面的表格由 GitHub Actions 自动维护 · 仓库累计提交 **12** 次
+> 下面的表格由 GitHub Actions 自动维护 · 仓库累计提交 **14** 次
 
 | 日期 | 提交信息 | 作者 | 提交 |
 |---|---|---|---|
-| 2026-11-27 | chore(activity): 自动更新项目动态 | hund111 | [`432b391`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/432b39154fbe8cf5183204ee35716fe6b00ae130) |
+| 2026-11-27 | docs: 更新到 v1.4（描述切片 / 主题 / 记忆 / 动态界面） | hund111 | [`cbf1717`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/cbf1717e2999a757ab5b534500e251087c59c52a) |
 | 2026-11-27 | fix(activity): 恢复完整脚本（上一步误覆盖）并修正说明行空格 | hund111 | [`ae9d25e`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/ae9d25eb7984f9b31c19adadf4e50836281b19d3) |
 | 2026-11-27 | style(activity): 修正说明行空格 | hund111 | [`1047284`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/1047284defabf0978674be3698ee9c97d67f12e7) |
 | 2026-11-27 | fix(activity): 过滤机器人提交、去掉每次变化的时间戳，避免无意义提交 | hund111 | [`aa89dc3`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/aa89dc3182df445405ba63a3d4d39faf0196b07b) |
 | 2026-11-27 | chore: 增加 .gitignore（登录态与素材不入库） | hund111 | [`3f9ddda`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/3f9ddda259987e518b6cc12f1ee74acf236564d0) |
-| 2026-11-27 | chore: 增加依赖清单 | hund111 | [`baedd67`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/baedd6782a83b4a765646334ffa9c56977ed6c23) |
 
 <sub>自动机器人的提交不计入本表；工作流文件：`.github/workflows/update-activity.yml`。</sub>
 <!-- ACTIVITY:END -->
