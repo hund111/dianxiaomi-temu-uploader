@@ -20,10 +20,12 @@
 
 <!-- ACTIVITY:START -->
 
-> 最近刷新：**2026-11-27 10:05**（北京时间）· 累计提交 **3** 次
+> 最近刷新：**2026-11-27 10:05**（北京时间）· 累计提交 **5** 次
 
 | 日期 | 提交信息 | 作者 | 提交 |
 |---|---|---|---|
+| 2026-11-27 | chore: 增加依赖清单 | hund111 | [`baedd67`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/baedd6782a83b4a765646334ffa9c56977ed6c23) |
+| 2026-11-27 | chore(activity): 自动更新项目动态 | github-actions[bot] | [`039837b`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/039837b041e241e09e9a08848560dff0e6798428) |
 | 2026-11-27 | feat: 增加项目动态生成脚本 | hund111 | [`9f4359d`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/9f4359d60461b395c4c837963bef2927b281fcab) |
 | 2026-11-27 | ci: 增加项目动态自动更新工作流 | hund111 | [`7ec582e`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/7ec582e8d394eecdefb7e6696f4566cf2cfe0bad) |
 | 2026-11-27 | docs: 初始化项目说明与项目动态模块 | hund111 | [`b98c2d3`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/b98c2d31c95dccfe37f5cc931c6fe0534c207e8f) |
