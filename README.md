@@ -19,7 +19,16 @@
 ## 项目动态
 
 <!-- ACTIVITY:START -->
-> 本段由 GitHub Actions 在每次 push 与每日定时任务中自动重写：最近 5 次提交 + 累计提交量。
+
+> 最近刷新：**2026-11-27 10:05**（北京时间）· 累计提交 **3** 次
+
+| 日期 | 提交信息 | 作者 | 提交 |
+|---|---|---|---|
+| 2026-11-27 | feat: 增加项目动态生成脚本 | hund111 | [`9f4359d`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/9f4359d60461b395c4c837963bef2927b281fcab) |
+| 2026-11-27 | ci: 增加项目动态自动更新工作流 | hund111 | [`7ec582e`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/7ec582e8d394eecdefb7e6696f4566cf2cfe0bad) |
+| 2026-11-27 | docs: 初始化项目说明与项目动态模块 | hund111 | [`b98c2d3`](https://github.com/hund111/dianxiaomi-temu-uploader/commit/b98c2d31c95dccfe37f5cc931c6fe0534c207e8f) |
+
+<sub>这个模块由 `.github/workflows/update-activity.yml` 自动维护，无需手动改。</sub>
 <!-- ACTIVITY:END -->
 
 ---
