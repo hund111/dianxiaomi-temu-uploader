@@ -1,0 +1,28 @@
+# 登录态与运行数据：千万不要提交
+cookies.json
+cookies.json.bak*
+config.json
+config.json.bak*
+已上品记录.json
+logs/
+ck/
+
+# 浏览器配置与驱动
+_chrome_profile/
+_chrome_profile_bg/
+drivers/
+
+# 素材与临时文件
+上图标题/
+上图视频/
+外包装图/
+_frames_tmp/
+_frames_tmp2/
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器
+.vscode/
+.idea/
